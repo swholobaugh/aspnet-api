@@ -75,8 +75,7 @@ namespace SocialMediaAPI.Controllers
             await _unitOfWork.Users.Insert(user);
             _unitOfWork.Complete();
 
-            //return CreatedAtAction("GetUser", new { id = user.UserId }, user);
-            return RedirectToRoute("Get");
+            return CreatedAtAction(nameof(Get), new { id = user.UserId }, user);
         }
 
         // DELETE: api/Users/5
@@ -92,7 +91,7 @@ namespace SocialMediaAPI.Controllers
             await _unitOfWork.Users.DeleteUser(id);
             _unitOfWork.Complete();
 
-            return RedirectToRoute("Get");
+            return NoContent();
         }
 
     }
