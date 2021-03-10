@@ -11,6 +11,7 @@ using SocialMediaAPI.Data;
 using SocialMediaAPI.Data.Repository;
 using SocialMediaAPI.Data.Repositories;
 using SocialMediaAPI.Data.Repositories.PostRepository;
+using SocialMediaAPI.Data.Repositories.CommentRepository;
 
 namespace SocialMediaAPI.DependencyInjection
 {
@@ -20,6 +21,7 @@ namespace SocialMediaAPI.DependencyInjection
         {
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IPostRepository, PostRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository> ();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddDbContext<DataContext>(opt => opt

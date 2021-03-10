@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SocialMediaAPI.Data.Repositories;
 using SocialMediaAPI.Data.Repository;
+using SocialMediaAPI.Data.Repositories.CommentRepository;
 using SocialMediaAPI.Data.Models;
 
 namespace SocialMediaAPI.Data
@@ -10,6 +11,7 @@ namespace SocialMediaAPI.Data
     {
         IUserRepository Users { get; }
         IPostRepository Posts { get; }
+        ICommentRepository Comments { get; }
         void Complete();
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SocialMediaAPI.Data.Models;
 using SocialMediaAPI.Data.Repositories;
 using SocialMediaAPI.Data.Repository;
+using SocialMediaAPI.Data.Repositories.CommentRepository;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -14,14 +15,17 @@ namespace SocialMediaAPI.Data
         private readonly DataContext _dbContext;
         public IUserRepository Users { get; }
         public IPostRepository Posts { get; }
+        public ICommentRepository Comments { get; }
 
         public UnitOfWork(DataContext dataContext, 
             IUserRepository usersRepository, 
-            IPostRepository postsRepository)
+            IPostRepository postsRepository,
+            ICommentRepository commentsRepository)
         {
             this._dbContext = dataContext;
             this.Users = usersRepository;
             this.Posts = postsRepository;
+            this.Comments = commentsRepository;
         }
         
 

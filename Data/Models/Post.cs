@@ -13,5 +13,6 @@ namespace SocialMediaAPI.Data.Models
         public DateTime PublishedOn { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
+        public IList<Comment> Comments { get; } = new List<Comment>();
     }
 }
