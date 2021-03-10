@@ -10,7 +10,7 @@ using SocialMediaAPI.Data;
 namespace SocialMediaAPI.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210310145325_InitialCreate")]
+    [Migration("20210310163108_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -73,7 +73,7 @@ namespace SocialMediaAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Post");
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("SocialMediaAPI.Data.Models.User", b =>
@@ -91,7 +91,7 @@ namespace SocialMediaAPI.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SocialMediaAPI.Data.Models.Comment", b =>

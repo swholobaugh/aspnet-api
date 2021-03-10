@@ -71,7 +71,7 @@ namespace SocialMediaAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Post");
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("SocialMediaAPI.Data.Models.User", b =>
@@ -89,7 +89,7 @@ namespace SocialMediaAPI.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SocialMediaAPI.Data.Models.Comment", b =>

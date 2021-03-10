@@ -35,37 +35,31 @@ namespace SocialMediaAPI.Controllers
             return await _unitOfWork.Users.GetByID(id);
         }
 
-        /*
+        
         // PUT: api/Users/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public ActionResult PutUser(int id, User user)
         {
             if (id != user.UserId)
             {
                 return BadRequest();
             }
 
-            _unitOfWork.Entry(user).State = EntityState.Modified;
+            _unitOfWork.Users.Update(user);
 
             try
             {
-                await _context.SaveChangesAsync();
+                _unitOfWork.Complete();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
 
             return NoContent();
-        }*/
+        }
+        
 
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
@@ -82,12 +76,6 @@ namespace SocialMediaAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteUser(int id)
         {
-            /*var user = await _unitOfWork.Users.GetByID(id);
-            if (user == null)
-            {
-                return NotFound();
-            }*/
-
             await _unitOfWork.Users.DeleteUser(id);
             _unitOfWork.Complete();
 
